@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Listfilter by ryanpitts</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen">
+        <link href="css/pygment_trac.css" rel="stylesheet" type="text/css" media="screen">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <title>Listfilter.js</title>
+    </head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+    <body>
+        <div id="container">
 
-        <header>
-          <h1>Listfilter</h1>
-          <h2>Listfilter creates a fast, case-insensitive text filter against a list of HTML elements on a page.</h2>
-        </header>
+            <header>
+                <div class="wrapper">
+                    <h1>Listfilter</h1>
+                    <h2>A fast, in-page text filter for a list of HTML elements.</h2>
+                    
+                    <section id="actions" class="clearfix">
+                      <a href="https://github.com/ryanpitts/listfilter" id="view-on-github" class="button"><span>View on GitHub</span></a>
+                    </section>
+                </div>
+            </header>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/ryanpitts/listfilter/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/ryanpitts/listfilter/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/ryanpitts/listfilter" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h2>
-<a name="about-listfilterjs" class="anchor" href="#about-listfilterjs"><span class="octicon octicon-link"></span></a>About listfilter.js</h2>
-
-<p>Listfilter creates a fast, case-insensitive text filter against a list of HTML elements on a page. Sometimes you just need a little thing to do a thing, you know?</p>
-
-<h3>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
-
-<ul>
-<li>jQuery</li>
-</ul><h3>
-<a name="sample-use" class="anchor" href="#sample-use"><span class="octicon octicon-link"></span></a>Sample use</h3>
-
-<p>This finds an unordered list of class <code>my-list</code>, and prepends it with a text input that filters the <code>li</code> elements in the list.</p>
+            <div class="wrapper">
+                <section id="about">
+                    <h2>About listfilter.js</h2>
+                    <p>Listfilter creates a fast, case-insensitive text filter against a list of HTML elements on a page. Sometimes you just need a little thing to do a thing, you know?</p>
+                </section>
+                
+                <section id="requirements">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>jQuery</li>
+                    </ul>
+                </section>
+                    
+                <section id="examples">
+                    <h3>Examples</h3>
+                    <p>This finds an unordered list of class <code>my-list</code>, and prepends it with a text input that filters the <code>li</code> elements in the list.</p>
 
 <pre><code>var filter = ListFilter({
     listContainer: 'ul.my-list',
     filterItemClass: 'li'
 });
-
 </code></pre>
 
-<p>This creates a text input inside an existing page element with ID <code>filter-list-input-container</code>. The text input filters children of class <code>filter-item</code> inside a parent of ID <code>filterable-list</code>. The child elements may be grouped inside blocks of class <code>filter-block</code>, and if no children inside a block match the text filter, the entire block is hidden as well.</p>
+                    <p>This creates a text input inside an existing page element with ID <code>filter-list-input-container</code>. The text input filters children of class <code>filter-item</code> inside a parent of ID <code>filterable-list</code>. The child elements may be grouped inside blocks of class <code>filter-block</code>, and if no children inside a block match the text filter, the entire block is hidden as well.</p>
 
 <pre><code>var filter = ListFilter({
     inputContainer: '#filter-list-input-container',
@@ -62,20 +59,18 @@
     filterBlockClass: '.filter-block'
 });
 </code></pre>
+                </section>
 
-<h3>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+                <section id="license">
+                    <h3>License</h3>
+                    <p>MIT.</p>
+                </section>
 
-<p>MIT.</p>
-        </section>
-
-        <footer>
-          Listfilter is maintained by <a href="https://github.com/ryanpitts">ryanpitts</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
-    </div>
-  </body>
+                <footer>
+                    <p>Listfilter is maintained by <a href="https://github.com/ryanpitts">ryanpitts</a><br>
+                    This page uses a tweaked Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+                </footer>
+            </div>
+        </div>
+    </body>
 </html>
