@@ -1,7 +1,11 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+/*  http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+    
+    These styles began life as the Tactile theme
+    for gh-pages by Jason Long: https://twitter.com/jasonlong
 */
+
 *, *:before, *:after {
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
@@ -55,8 +59,6 @@ strong {
 em {
     font-style: italic;
 }
-
-/* GENERAL ELEMENT TYPE STYLES */
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -144,10 +146,10 @@ body {
 }
 
 a {
-  color: #d5000d;
+  color: #c5000c;
 }
 a:hover {
-  color: #c5000c;
+  color: #e71d29;
 }
 
 header {
@@ -189,15 +191,16 @@ header h2 {
   max-width: 100%;
 }
 
-#actions {
+header section {
   margin: 2em 0 0;
 }
 
+header .logos {
+    float: right;
+}
+
 a.button {
-  border-top: solid 1px #cbcbcb;
-  border-left: solid 1px #b7b7b7;
-  border-right: solid 1px #b7b7b7;
-  border-bottom: solid 1px #b3b3b3;
+  border: 1px solid #aaa;
   color: #303030;
   line-height: 21px;
   font-weight: bold;
@@ -206,12 +209,12 @@ a.button {
   display: block;
   float: left;
   background-color: #e7e7e7;
+  height: 48px;
 }
 a.button:hover {
   background: #fafafa; /* Old browsers */
 }
 a.button, a.org-logo {
-    height: 48px;
     -moz-border-radius: .5em;
     -webkit-border-radius: .5em;
     border-radius: .5em;
@@ -228,15 +231,24 @@ a.button span {
 #view-on-github {
   margin-right: 0;
 }
-
+header a {
+    color: #aaa;
+}
 .org-logo {
+    float: left;
+    height: 30px;
     display: inline-block;
-    float: right;
-    padding: 10px 12px;
+    padding: 3px 6px;
     background: #fff;
+    margin: 0 8px 8px 0;
 }
 .org-logo img {
-    height: 28px;
+    height: 24px;
+}
+.logos p {
+    font-size: 12px;
+    clear: both;
+    margin: 0 8px 0 0;
 }
 
 code, pre {
@@ -325,36 +337,27 @@ ul.my-list {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
-/* #Media Queries
-================================================== */
-
-/* Smaller than standard 960 (devices and browsers) */
-@media only screen and (max-width: 959px) {}
-
-/* Tablet Portrait size to standard 960 (devices and browsers) */
-@media only screen and (min-width: 768px) and (max-width: 959px) {}
-
-/* All Mobile Sizes (devices and browser) */
+/* Media Queries */
 @media only screen and (max-width: 767px) {
-  header {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  #downloads {
-    margin-bottom: 25px;
-  }
-  #download-zip, #download-tar-gz {
-    display: none;
-  }
-  .wrapper {
-    width: 94%;
-    margin: 0 auto;
-  }
+    header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .wrapper {
+        width: 94%;
+        margin: 0 auto;
+    }
 }
 @media only screen and (max-width: 560px) {
     .my-list li, .filter-block {
         float: none;
         width: auto;
         margin: 1em 0 1em 0;
+    }
+    header .logos {
+        float: none;
+        clear: both;
+        display: block;
+        padding: 1.5em 0;
     }
 }
