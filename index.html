@@ -7,6 +7,8 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen">
         <link href="css/pygment_trac.css" rel="stylesheet" type="text/css" media="screen">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="https://raw.githubusercontent.com/ryanpitts/listfilter/master/listfilter.js"></script>
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -18,11 +20,12 @@
 
             <header>
                 <div class="wrapper">
-                    <h1>Listfilter</h1>
+                    <h1>ListFilter</h1>
                     <h2>A fast, in-page text filter for a list of HTML elements.</h2>
                     
                     <section id="actions" class="clearfix">
                       <a href="https://github.com/ryanpitts/listfilter" id="view-on-github" class="button"><span>View on GitHub</span></a>
+                      <a href="http://opennews.org" class="org-logo"><img src="img/opennews-logo.png"></a>
                     </section>
                 </div>
             </header>
@@ -30,7 +33,7 @@
             <div class="wrapper">
                 <section id="about">
                     <h2>About listfilter.js</h2>
-                    <p>Listfilter creates a fast, case-insensitive text filter against a list of HTML elements on a page. Sometimes you just need a little thing to do a thing, you know?</p>
+                    <p>ListFilter creates a fast, case-insensitive text filter against a list of HTML elements on a page. Sometimes you just need a little thing to do a thing, you know?</p>
                 </section>
                 
                 <section id="requirements">
@@ -42,15 +45,19 @@
                     
                 <section id="examples">
                     <h3>Examples</h3>
-                    <p>This finds an unordered list of class <code>my-list</code>, and prepends it with a text input that filters the <code>li</code> elements in the list.</p>
+                    
+                    <div class="example-block">
+                        <p>This simple implementation finds an unordered list of class <code>my-list</code>, and prepends it with a text input that filters the <code>li</code> elements in the list.</p>
 
 <pre><code>var filter = ListFilter({
     listContainer: 'ul.my-list',
     filterItemClass: 'li'
 });
 </code></pre>
+                    </div>
 
-                    <p>This creates a text input inside an existing page element with ID <code>filter-list-input-container</code>. The text input filters children of class <code>filter-item</code> inside a parent of ID <code>filterable-list</code>. The child elements may be grouped inside blocks of class <code>filter-block</code>, and if no children inside a block match the text filter, the entire block is hidden as well.</p>
+                    <div class="example-block">
+                        <p>Here&rsquo;s a more likely use, which creates a text input inside an existing page element with ID <code>filter-list-input-container</code>. That text input filters children of class <code>filter-item</code> inside a parent of ID <code>filterable-list</code>. The child elements may be grouped inside blocks of class <code>filter-block</code>, and if no children inside a block match the text filter, the entire block is hidden as well. You can try it out below.</p>
 
 <pre><code>var filter = ListFilter({
     inputContainer: '#filter-list-input-container',
@@ -59,6 +66,113 @@
     filterBlockClass: '.filter-block'
 });
 </code></pre>
+
+                        <div id="filter-list-input-container"></div>
+                        <div id="filterable-list" class="clearfix">
+                            <div class="filter-block">
+                                <h3>A.L. West</h3>
+                                <ul>
+                                    <li class="filter-item">Anaheim Angels</li>
+                                    <li class="filter-item">Houston Astros</li>
+                                    <li class="filter-item">Oakland Athletics</li>
+                                    <li class="filter-item">Seattle Mariners</li>
+                                    <li class="filter-item">Texas Rangers</li>
+                                </ul>
+                            </div>
+                            <div class="filter-block">
+                                <h3>A.L. Central</h3>
+                                <ul>
+                                    <li class="filter-item">Chicago White Sox</li>
+                                    <li class="filter-item">Cleveland Indians</li>
+                                    <li class="filter-item">Detroit Tigers</li>
+                                    <li class="filter-item">Kansas City Royals</li>
+                                    <li class="filter-item">Minnesota Twins</li>
+                                </ul>
+                            </div>
+                            <div class="filter-block">
+                                <h3>A.L. East</h3>
+                                <ul>
+                                    <li class="filter-item">Baltimore Orioles</li>
+                                    <li class="filter-item">Boston Red Sox</li>
+                                    <li class="filter-item">New York Yankees</li>
+                                    <li class="filter-item">Tampa Bay Rays</li>
+                                    <li class="filter-item">Toronto Blue Jays</li>
+                                </ul>
+                            </div>
+                            <div class="filter-block">
+                                <h3>N.L. West</h3>
+                                <ul>
+                                    <li class="filter-item">Arizona Diamondbacks</li>
+                                    <li class="filter-item">Colorado Rockies</li>
+                                    <li class="filter-item">Los Angeles Dodgers</li>
+                                    <li class="filter-item">San Diego Padres</li>
+                                    <li class="filter-item">San Francisco Giants</li>
+                                </ul>
+                            </div>
+                            <div class="filter-block">
+                                <h3>N.L. Central</h3>
+                                <ul>
+                                    <li class="filter-item">Chicago Cubs</li>
+                                    <li class="filter-item">Cincinnati Reds</li>
+                                    <li class="filter-item">Milwaukee Brewers</li>
+                                    <li class="filter-item">Pittsburgh Pirates</li>
+                                    <li class="filter-item">St. Louis Cardinals</li>
+                                </ul>
+                            </div>
+                            <div class="filter-block">
+                                <h3>N.L. East</h3>
+                                <ul>
+                                    <li class="filter-item">Atlanta Braves</li>
+                                    <li class="filter-item">Miami Marlins</li>
+                                    <li class="filter-item">New York Mets</li>
+                                    <li class="filter-item">Philadelphia Phillies</li>
+                                    <li class="filter-item">Washington Nationals</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            var filter = ListFilter({
+                                inputContainer: '#filter-list-input-container',
+                                listContainer: '#filterable-list',
+                                filterItemClass: '.filter-item',
+                                filterBlockClass: '.filter-block'
+                            });
+                        </script>
+                    </div>
+                </section>
+
+                <section id="api">
+                    <div class="example-block">
+                        <h3>The ListFilter API</h3>
+                        <p>When you create a new filter, these arguments are <strong>required:</strong></p>
+                        <ul>
+                            <li><strong>listContainer:</strong> The parent HTML element containing the items to be filtered. You can pass this a jQuery-style ID or class, or an HTML tag name.</li>
+                            <li><strong>filterItemClass:</strong> The elements to be matched by the filter. You can pass this a jQuery-style class or a tag name.</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-block">
+                        <p>When you create a new filter, these arguments are <strong>optional</strong>:</p>
+                        <ul>
+                            <li><strong>inputContainer</strong>: The HTML element in which to place the text-filter input. You should pass this a jQuery-style ID. If you do not provide this argument, the input will be inserted immediately before the <code>listContainer</code>.</li>
+                            <li><strong>inputPrompt</strong>: A text string that appears immediately before the text-filter input. Defaults to &lsquo;Search list.&rsquo;</li>
+                            <li><strong>inputClass</strong>: A CSS class to apply to the text-filter <code>input</code> element.</li>
+                            <li><strong>filterBlockClass:</strong> An HTML wrapper class used to group members <code>filterItemClass</code> (so you can include headers or other markup along with groups). You should pass this a jQuery-style class. During filtering, any member of <code>filterBlockClass</code> with no visible filter items will also be hidden.</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-block">
+<pre><code>var filter = ListFilter({
+    listContainer: '', //required jQuery-style ID or class, or an HTML tag name
+    filterItemClass: '', //required jQuery-style class or HTML tag name
+    inputContainer: '', //optional jQuery-style ID
+    inputPrompt: '', //optional string
+    inputClass: '', //optional string
+    filterBlockClass: '' //optional jQuery-style class
+});
+</code></pre>
+                    </div>
                 </section>
 
                 <section id="license">
@@ -67,8 +181,8 @@
                 </section>
 
                 <footer>
-                    <p>Listfilter is maintained by <a href="https://github.com/ryanpitts">ryanpitts</a><br>
-                    This page uses a tweaked Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+                    <p>Listfilter is maintained by <a href="https://github.com/ryanpitts">ryanpitts</a>
+                    <br>This page uses a tweaked Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
                 </footer>
             </div>
         </div>
